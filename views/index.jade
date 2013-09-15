@@ -1,0 +1,66 @@
+extends layout
+
+block content
+	header
+		h1 FANATICOCESA
+		div.imgCont
+			a(href="#")
+				img(src="/images/headIco1.png")
+			a(href="#")
+				img(src="/images/headIco2.png")
+			a(href="#")
+				img(src="/images/headIco3.png")
+			a(href="#")
+				img(src="/images/headIco4.png")
+			a(href="#")
+				img(src="/images/headIco5.png")
+			a(href="#")
+				img(src="/images/headIco6.png")
+	div#justin
+		img(src="/images/justin-bieber-silueta.png")
+	#main
+		div.wrap
+			div#s1
+				h2 Instrucciones
+				p
+					a#openReg(href="javascript:;") Registrate aca
+			div#s2
+				h2 Ranking
+				ul#ranking
+					each rank in ranking
+						li.rank
+							p #{rank._id.user}
+								span #{rank.nTweets}
+			div#s3
+				h2 Tweets
+				ul#tweets
+					each doc in docs
+						li.tweet
+							div.s0
+								span #{doc.nameUser} 
+									small @#{doc.user}
+							div.s1 
+								img(src="#{doc.avatar}")
+							div.s2 
+								p #{doc.cuerpo}
+	div#formRegistro
+		form#registro(action="guardar")
+			div.wrap
+				input(type="text", name="Nombre", placeholder="Nombre")
+			div.wrap
+				input(type="text", name="Apellido", placeholder="Apellido")
+			div.wrap
+				input(type="text", name="Mail", placeholder="Mail")
+			div.wrap
+				input(type="text", name="fechaN", class="fechaN", placeholder="Fecha de Nacimiento")
+			div.wrap
+				input(type="text", name="boleta", placeholder="# de boleta")
+			div.wrap
+				input(type="text", name="tUser", placeholder="Usuario de Twitter")
+			div.wrap
+				input(type="text", name="Telefono", placeholder="Telefono")
+			input(type="submit") Enviar
+	footer
+		p 
+			a(href="https://docs.google.com/document/d/1LOxLYwx7tkVhuOT8gNOs59y8CaCPfulEtNOqnjbjcDA/edit", target="_blanck") Terminos y condiciones del concurso. 
+			span Organizado por Ocesa Colombia Nit. 900.366.788-0 Calle 63 No. 60 - 80, Bogota, Colombia.
